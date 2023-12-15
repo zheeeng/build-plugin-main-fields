@@ -1,0 +1,29 @@
+{
+  "name": "build-plugin-main-fields",
+  "version": "1.0.0",
+  "description": "Build-scripts plugin for config resolve fields of package.json",
+  "main": "dist/index.js",
+  "keywords": [
+    "build-scripts",
+    "build-plugin",
+    "resolve",
+    "main-fields"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsc -w",
+    "build": "rm -rf dist && tsc"
+  },
+  "author": "zheeeng <hi@zheeeng.me",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zheeeng/build-plugin-main-fields"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "build-scripts": "^1.1.1",
+    "typescript": "^5.3.3"
+  }
+}
