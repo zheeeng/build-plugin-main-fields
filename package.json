@@ -1,6 +1,6 @@
 {
   "name": "build-plugin-main-fields",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build-scripts plugin for config resolve fields of package.json",
   "main": "dist/index.js",
   "keywords": [
