@@ -1,9 +1,27 @@
 import type { IPlugin } from 'build-scripts';
 
-const plugin: IPlugin = ({ onGetWebpackConfig }) => {
+function getValidOptions (options: any): { mainFields: string[] } {
+  if (options && typeof options === 'object' && 'mainFields' in options && Array.isArray(options.mainFields)) {
+    return {
+      mainFields: options.mainFields
+    };
+  }
+
+  return {
+    mainFields: ['main', 'module']
+  };
+}
+
+const plugin: IPlugin = ({ onGetWebpackConfig }, options) => {
   onGetWebpackConfig(config => {
-    config.resolve.mainFields
-      .clear('.mjs').add('main').add('module');
+    const mainFields = getValidOptions(options).mainFields;
+
+    const chainable = config.resolve.mainFields
+      .clear('.mjs');
+
+    for (const field of mainFields) {
+      chainable.add(field);
+    }
   });
 };
 
